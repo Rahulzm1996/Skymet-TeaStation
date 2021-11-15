@@ -1,0 +1,750 @@
+/* 
+==================
+google Fonts 
+==================
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
+
+/* 
+==================
+Global Varaibles
+==================
+*/
+
+:root {
+  --clr-primary: #678e3e;
+  --clr-primary-light: #beed8c;
+  --clr-grey-1: #102a42;
+  --clr-grey-5: #617d98;
+  --clr-grey-10: #f1f5f8;
+  --clr-white: #fff;
+  --ff-primary: "Catamaran", sans-serif;
+  --ff-secondary: "Grand Hotel", cursive;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+}
+
+/* browser styles reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: var(--ff-primary); /* font family of all the elements */
+  background: var(--clr-white); /* background color of application */
+  color: var(--clr-grey-1); /* color of all the elements */
+  line-height: 1.5; /* line height of all the elements */
+  font-size: 0.875rem; /* font size of all the elements */
+  /* here we have set the font size to 0.875 which is less than 1(default value) as we are setting this values for small screen. later we will change it in media query */
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25; /* since the height of heading(<h> tags) is going to be larger hence we are decreasing the line height */
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+}
+/* media query for full screen view */
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+
+  /* as we are moving to bigger window we are going to decrease out line height of headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+/* more global css */
+
+/*added when we started developing skill section start*/
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block; /*just in case if we add any margin then it should be respected*/
+  font-weight: 700;
+  font-size: 0.875rem; /*here we are keeing with respect to small screen later we can change it for bigger screen*/
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+.btn:hover {
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; /*want to know what is this ? */
+}
+/*added when we started developing skill section end*/
+
+/*added when we started developing about section start*/
+.section-title h3 {
+  color: var(--clr-primary);
+  font-family: var(--ff-secondary);
+}
+
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.section-center {
+  padding: 4rem 0;
+  width: 85vw;
+  margin: 0 auto; /*horizontal centering of block level elements*/
+  max-width: 1170px;
+}
+
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+    padding: 4rem 1rem;
+  }
+}
+
+/*added when we started developing about section end*/
+
+/*added when we were done with navbar development start*/
+/* 
+==================
+Animation
+==================
+*/
+
+/* animation for nav-btn */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(-50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/*added when we were done with navbar development end*/
+
+/*added when we started developing about section end*/
+
+/* added navbar after designing all the sections of the page start */
+/* 
+==================
+Navbar
+==================
+*/
+.nav-btn {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  font-size: 2.5rem;
+  color: var(--clr-primary);
+  z-index: 1;
+  cursor: pointer;
+  /* animation */
+  /* NOTE::we set up this animation once we write our animation code above in animation section */
+  animation: bounce 2s ease infinite;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-btn {
+    font-size: 1.5rem;
+  }
+}
+
+/* navbar */
+.navbar {
+  /* border: 5px solid red; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* width: 100%;
+  height: 100%; */
+  background: var(--clr-grey-10);
+  z-index: 2;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+  /*if we want to span something(which has some background color) all across the screen then we can have top/left/bottom/right values as 0 so that it will cover the whole screen*/
+  /*now hide complete navbar */
+  transform: translateX(-100%);
+  /* initially we are hiding our complete navbar */
+  transition: var(--transition);
+}
+
+.showNav {
+  transform: translateX(0);
+}
+.navbar-header {
+  text-align: right;
+  padding-right: 1rem;
+}
+.nav-close {
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #f29c9c;
+  transition: var(--transition);
+}
+.nav-close:hover {
+  color: #bb2525;
+}
+.nav-items {
+  list-style-type: none; /* to remove the ul dots from left side though they are not visible because we have hard reset our margin to 0 in starting */
+}
+.nav-link {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+  color: var(--clr-grey-5);
+  transition: var(--transition);
+}
+.nav-link:hover {
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  /* NOTE:: not using transform and box-shadow for below 2 effects */
+  padding-left: 1.5rem;
+  border-left: 0.25rem solid var(--clr-primary);
+}
+/* now I am going to short my navbar panal once my screen width is more the 768px and note here we have given max-width of 20rem because we have used  width as 30vw means as soon as we are going to increase our screen size more than 768x our panel is going to take 30wh of screen and because of this our navbar width is also going to increase but we are limiting the max-width of our navbar by saying max-width of 20rem so whatever our screen size going to increase our navbar width is going to limit at 20rem */
+@media screen and (min-width: 768px) {
+  .navbar {
+    width: 30vw;
+    max-width: 20rem;
+  }
+}
+
+/* added navbar after designing all the sections of the page end */
+/* 
+==================
+Header
+==================
+*/
+
+header {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/main-bcg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  /* aimation */
+  overflow-x: hidden;
+}
+
+.banner {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.banner h2 {
+  font-family: var(--ff-secondary);
+  color: var(--clr-primary);
+  /* animation */
+  animation: slideFromRight 5s ease-in-out 1;
+}
+.banner h1 {
+  color: var(--clr-white);
+  text-transform: uppercase;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  /* animation */
+  animation: slideFromLeft 5s ease-in-out 1;
+}
+
+/* before banner-btn we defined some common style in more global css then we overwrite some style here in banner-btn*/
+.banner-btn {
+  outline: 0.125rem solid var(--clr-primary);
+  outline-offset: 0.25rem;
+  font-size: 1.25rem;
+  padding: 1rem 1.75rem;
+  /* animation */
+  animation: show 5s linear 1;
+}
+
+/* content divider */
+.content-divider {
+  height: 0.5rem;
+  background: linear-gradient(
+    to left,
+    var(--clr-primary),
+    #e9b949,
+    var(--clr-primary)
+  );
+}
+
+/* 
+==================
+Skills
+==================
+*/
+
+.skills {
+  background: var(--clr-grey-10);
+  /* border: 5px solid blue; */
+}
+.skill {
+  padding: 2.5rem 0;
+  text-align: center;
+  transition: var(--transition);
+  /* border: 5px solid red; */
+}
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  transition: var(--transition);
+  /*thought we have given transition to article skill still we have to give it to icon coz icon is moving on hover of article else if we just give to article then only artice will move skill won't */
+  display: inline-block; /*since icons are present in span tag and span is a inline element and it won't support margin-top/bottom so to apply this properties we have used display:inline-block */
+  color: var(--clr-primary);
+}
+.skill-text {
+  color: var(--clr-grey-5);
+  max-width: 17rem;
+  margin: 0 auto; /*horizontal centering of block level elements*/
+}
+.skill:hover {
+  background: var(--clr-white);
+  box-shadow: 0 2px 0 var(--clr-primary);
+}
+.skill:hover .skill-icon {
+  /*.skill:hover .skill-icon => this means what should happen to skill-icons class when we hover on article skill*/
+  transform: translateY(-5px);
+}
+
+/* NOTE:: whenever we are going to float our individual elements/article then we need to apply clerfix class to the container so that our elements/article does not move out of the container else out transition won't work */
+@media screen and (min-width: 576px) {
+  .skill {
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .skill {
+    float: left;
+    width: 25%;
+  }
+}
+/*
+*************************************************
+NOTE = after applying above media queries our all the elements was floating left and also some transition stopped working because elements which followed floated elements was floating around and taken out of the flow(out of section skills) and hence our transition stopped working.
+SOLUTION = we are going to apply clearfix class to whole section in MORE GLOBAL CSS space and we have applied below css.
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+*************************************************
+*/
+
+/* 
+==================
+About
+==================
+*/
+
+.about-img,
+.about-info {
+  padding: 2rem 0;
+}
+
+.about-picture-container {
+  border: 0.5rem solid var(--clr-primary);
+  background: var(
+    --clr-primary
+  ); /*this is not going to be used for border, this is going to be used for blur of image when we hover over it */
+  max-width: 30rem; /*setting max width of contents inside div so that they would not increase their width more than 30rem and in this case it is image*/
+
+  /* extra stuff */
+  overflow: hidden; /* when we are scaling our image. on hover, we are hiding scaled image so that it should not come outside the div*/
+}
+.about-picture {
+  transition: var(--transition);
+}
+.about-picture-container:hover .about-picture {
+  /*here we are mentioning what should happen to image when we hover on div*/
+  transform: scale(1.2);
+  opacity: 0.5; /*on hover we are bluring the image with our primary color*/
+}
+.about-text {
+  color: var(--clr-grey-5);
+  max-width: 26rem;
+  text-align: left;
+}
+@media screen and (min-width: 992px) {
+  .about-img,
+  .about-info {
+    float: left;
+    width: 50%;
+  }
+  .about-info {
+    padding-left: 2rem;
+  }
+}
+
+/* 
+==================
+Products
+==================
+*/
+
+.products {
+  background: var(--clr-grey-10);
+}
+.products article {
+  padding: 2rem 0;
+}
+.product-text {
+  color: var(--clr-grey-5);
+  max-width: 26rem;
+}
+.product {
+  margin-bottom: 2rem;
+}
+
+.product-img {
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  height: 17rem; /*as am applying height, this is going to distort my image then in the next step am going to use object-fit to fit the image*/
+  object-fit: cover; /*since we have applied height to image. our images started distorting so to fit it proper in div we have applied object fit*/
+}
+.product-price {
+  color: var(--clr-primary);
+}
+
+/*NOTE:: now we are going to set the product column layouts then we will set the layout for products-info and products-inventory and here we are going to use padding-right to have spaces in between products*/
+
+/* now for 768px I want my products in 2 column layout */
+@media screen and (min-width: 768px) {
+  .product {
+    float: left;
+    width: 50%;
+    padding-right: 2rem;
+  }
+}
+/* now for 992px I want my products in 3 column layout */
+@media screen and (min-width: 992px) {
+  .product {
+    float: left; /*NOTE: this float left is optional here as we have already applied float:left when our screen size was 786px*/
+    width: 33.33%;
+    padding-right: 2rem; /*NOTE: this padding-right is optional here as we have already applied padding-right when our screen size was 786px*/
+    margin-bottom: 0; /*here we overwriting margin to 0 since we have added some margin-bottom when we had 1/2 column layout where products were stacking upon each other and there was no gap between them and but now that margin-bottom is creating extra space that's why we are removing it now for bigger screen*/
+  }
+}
+/* now i want my products-info and products-inventory in 2 columns once my screen size is atleast 1200px */
+@media screen and (min-width: 1200px) {
+  .products-info {
+    float: left;
+    width: 30%;
+  }
+  .products-inventory {
+    float: left;
+    width: 70%;
+  }
+  .product {
+    padding: 0 1rem; /*here we overring padding of above media queries to have padding 1rem for all the products so there there would be some gap between products-info and products-inventory*/
+    margin-bottom: 0; /*here we overring margin to 0 since we have added some margin-bottom when we had 1/2 column layout where products were stacking upon each other and there was no gap between them and but now that margin-bottom is creating extra space that's why we are removing it now for bigger screen*/
+  }
+}
+
+/* 
+==================
+Services
+==================
+*/
+
+.services-title {
+  margin-top: 2rem;
+  margin-bottom: -4rem;
+  text-align: center;
+}
+.service-card {
+  /* border: 5px solid red; */
+  margin: 2rem 0;
+  background: var(--clr-grey-10);
+  border-radius: var(
+    --radius
+  ); /*now this border-radius will only be visible at the bottom of card because we have image in the card which is on top of div that's why we are not able to see our border radius on top of each card*/
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+.service-img {
+  height: 17rem;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.service-info {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem 1rem;
+}
+.service-info p {
+  color: var(--clr-grey-5);
+  max-width: 20rem;
+  margin: 0 auto; /*horizontal centering of block level elements*/
+}
+.service-btn {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--radius);
+  font-weight: 400;
+  margin-top: 1.25rem;
+}
+
+/*NOTE:: now we are going to set the column layouts for service-card and we are going to use margin-right here by reducing the width of card whereas in above cases we used padding-right to have space in between products/*/
+
+/* now for 768px I want my card in 2 column layout */
+@media screen and (min-width: 768px) {
+  .service-card {
+    float: left;
+    max-width: 45%;
+    margin-right: 5%;
+  }
+}
+/* now for 992px I want my card in 3 column layout */
+@media screen and (min-width: 992px) {
+  .service-card {
+    float: left;
+    max-width: 30%;
+    margin-right: 3.33%;
+  }
+}
+
+/* service icon styling changes start */
+.service-img-container {
+  position: relative;
+}
+.service-icon {
+  position: absolute;
+  left: 50%; /*shifted icon 50% from left*/
+  bottom: 0;
+  font-size: 2rem;
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  padding: 0.25rem 0.6rem;
+  border-radius: 50%; /*to make perfect circle of icon*/
+  transform: translate(-50%, 50%); /*to keep icon in center*/
+  border: 0.375rem solid var(--clr-grey-10);
+}
+/* service icon styling changes end */
+
+/* 
+==================
+Contact
+==================
+*/
+.contact {
+  background: var(--clr-grey-10);
+}
+
+.contact-info {
+  margin: 1rem 0;
+}
+.contact-item {
+  margin-bottom: 1.75rem;
+}
+.contact-title {
+  color: var(--clr-primary);
+  font-weight: 400;
+}
+.contact-text {
+  text-transform: uppercase;
+}
+
+.contact-form {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  max-width: 35rem;
+}
+.contact-form:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.contact-form h3 {
+  color: var(--clr-grey-5);
+  padding-top: 1.25rem;
+}
+.form-group {
+  padding: 1rem 1.5rem;
+  /* border: 3px solid black; */
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: none;
+  background: var(--clr-grey-10);
+  border-radius: var(--radius);
+  color: var(--clr-grey-1);
+  /* text-transform: uppercase;
+  letter-spacing: var(--spacing); */
+}
+.form-control::placeholder {
+  /*here we are applying some styles to placeholder as in some browsers placeholder may not inhert some styles */
+  font-family: var(--ff-primary);
+  color: var(--clr-grey-1);
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+}
+.submit-btn {
+  width: 100%;
+  display: block;
+  padding: 1rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+/* now for 992px I want my contact-info and contact-form in 2 column layout */
+@media screen and (min-width: 992px) {
+  .contact-info,
+  .contact-form {
+    float: left;
+    width: 50%;
+  }
+}
+
+/* 
+==================
+Footer
+==================
+*/
+.footer {
+  background: #222;
+  text-align: center;
+}
+.social-icon {
+  color: var(--clr-white);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: var(--transition);
+}
+.social-icon:hover {
+  color: var(--clr-primary);
+}
+.footer-text {
+  margin-top: 1.25rem;
+  text-transform: uppercase;
+  color: var(--clr-white);
+  font-weight: 400;
+}
+.company {
+  color: var(--clr-primary);
+}

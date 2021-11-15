@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tea Station || About</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-5.12.1-web/css/all.min.css"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <!-- nav button -->
+    <span class="nav-btn" id="nav-btn">
+      <i class="fas fa-bars"></i>
+    </span>
+    <!-- end of nav button -->
+    <!-- navbar html -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-header">
+        <span class="nav-close" id="nav-close">
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+      <ul class="nav-items">
+        <li><a href="index.html" class="nav-link">home</a></li>
+        <li><a href="skills.html" class="nav-link">skills</a></li>
+        <li><a href="about.html" class="nav-link">about</a></li>
+        <li><a href="products.html" class="nav-link">products</a></li>
+      </ul>
+    </nav>
+    <!-- end of navbar html -->
+    <!-- end of  navbar -->
+
+    <!-- start of header -->
+    <header class="header">
+      <div class="banner">
+        <h2>Over one hundred flavours of</h2>
+        <h1>
+          specially <br />
+          crafted tea
+        </h1>
+        <a href="#" class="btn banner-btn">explore</a>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- start of about -->
+
+    <!-- NOTE:: here we are going to declare 2 more global styles 
+      1.section-center -> to have the section in center and we can use it later.
+      2.section-title -> to have the section with 2 heading common styles so that we can use them later in other blocks.
+    -->
+    <section>
+      <div class="section-center clearfix">
+        <!-- about img -->
+        <article class="about-img">
+          <div class="about-picture-container">
+            <!--here we have included the image in div container because when we are hovering on the image, the image is going to zoom and it should not go out of our artice we are using div to contain it-->
+            <img
+              src="./images/about-bcg.jpeg"
+              alt="tea cattle"
+              class="about-picture"
+            />
+          </div>
+        </article>
+        <!-- end of about img -->
+
+        <!-- about info -->
+        <article class="about-info">
+          <!-- section title -->
+          <div class="section-title">
+            <!-- here we are declearing section-title a global class so that we can use it later in other section -->
+            <h3>about out</h3>
+            <h2>tea station</h2>
+          </div>
+          <!-- end section title -->
+          <p class="about-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            deserunt, libero qui veritatis rerum cupiditate.
+          </p>
+          <p class="about-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            deserunt, libero qui veritatis rerum cupiditate.
+          </p>
+          <a href="#" class="btn">learn more</a>
+        </article>
+      </div>
+    </section>
+    <!-- end of about -->
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="section-center">
+        <div class="social-icons">
+          <!-- social icon -->
+          <a href="#" class="social-icon">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <!-- end of social icon -->
+          <!-- social icon -->
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <!-- end of social icon -->
+          <!-- social icon -->
+          <a href="#" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <!-- end of social icon -->
+        </div>
+        <h4 class="footer-text">
+          &copy;<span id="date"></span>
+          <span class="company">tea station</span>
+          rights reserved
+        </h4>
+      </div>
+    </footer>
+    <!-- end of footer -->
+    <script src="app.js"></script>
+  </body>
+</html>
